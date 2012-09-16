@@ -1,7 +1,7 @@
 iOS Cache Dump
 ============
 
-Simple python script/library to display the contents of the iOS Cache.db file.
+Simple python script/library to display the contents of the iOS Cache.db file. Script isn't completely flushed out, but can easily be added to. F
 
 	usage: iOS_cache_dump.py [-h] [-dump] [-o output] db
 
