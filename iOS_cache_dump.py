@@ -7,7 +7,7 @@ import sys
 from os import path
 from os import sep
 from os import makedirs
-from biplist import readPlistFromString
+from lib.biplist import readPlistFromString
 
 class CFURL_Cache_Response():
 	def __init__(self, id, version, hash, storage_policy, req_key, ts):
@@ -96,7 +96,7 @@ if __name__ == "__main__":
                 action='store_true')
 	parser.add_argument('-o', '--output',
 		metavar='output',
-		help='write the request and response blobs as plists in the format <entryid>.req and <entryid>.response in the folder specified. default is output')
+		help='write the request and response blobs as plists in the format <entryid>.req and <entryid>.resp in the folder specified. default is output')
 
         temp = parser.parse_args()
         args = vars(temp)
