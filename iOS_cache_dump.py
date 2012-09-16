@@ -116,7 +116,6 @@ if __name__ == "__main__":
 			print('\tRequest: %s' % json.dumps(blob.request, indent=10))
 			print('\tResponse: %s' % json.dumps(blob.response, indent=10))
 	#getURLs()
-	print(args)
 	if args['output']:
 		dir = args['output']
 		if not path.exists(dir):
@@ -128,9 +127,4 @@ if __name__ == "__main__":
 			respFile = open('%s%s%s.resp' % (dir, sep, bk), 'w+')
 			respFile.write(json.dumps(bv.response, indent=4))
 			respFile.close()
-	#dump
-
-
-
-
 
