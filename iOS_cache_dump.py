@@ -50,7 +50,6 @@ class CacheDumper():
 	'''returns a list of the response urls'''
 	def getURLs(self):
 		return map(lambda x: x.req.geturl(), self.cacheMap.values())
-		#return map(lambda x: format('%s://%s%s', x.req.scheme, self.req.x.req.query, self.cacheMap.values())
 
 	def geBlobs(self):
 		pass
@@ -85,7 +84,7 @@ if __name__ == "__main__":
         Stuff to support
         -Dump the plists to files
         '''
-        parser = argparse.ArgumentParser(description='Python script to inspect iOS Cache.db files',
+        parser = argparse.ArgumentParser(description='Python script/lib to inspect iOS Cache.db files',
                 epilog='default action is to dump request urls with their respective parameters')
         parser.add_argument('dbfile',
                 metavar='db',
