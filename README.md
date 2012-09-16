@@ -1,4 +1,4 @@
-ioscachedump
+iOS Cache Dump
 ============
 
-SImple app to display the contents of the iOS Cache.db file.
+Simple app to display the contents of the iOS Cache.db file.
