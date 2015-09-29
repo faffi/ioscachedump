@@ -38,7 +38,7 @@ class CFURL_Cache_BLOB():
 	def __str__(self):
 		return """\tRequest: %s
 \tResponse: %s
-		""" % (json.dumps(blob.request, indent=10), json.dumps(blob.response, indent=10))
+		""" % (json.dumps(blob.request, indent=10, encoding="ISO-8859-1"), json.dumps(blob.response, indent=10, encoding="ISO-8859-1"))
 
 class CFURL_Response_Data():
 	''' cfurl_cache_receiver_data(entry_ID INTEGER PRIMARY KEY, receiver_data BLOB); '''
@@ -47,7 +47,7 @@ class CFURL_Response_Data():
 		self.receiver_data = receiver_data#binascii.unhexlify(receiver_data)
 		try:
 			temp = tempfile.NamedTemporaryFile()
-			temp.write(receiver_data)
+			temp.write(str(receiver_data))
 			p = subprocess.Popen(['file', '-b', temp.name], stdout=subprocess.PIPE, 
                                        stderr=subprocess.PIPE)
 			self.out, self.err = p.communicate()
@@ -161,10 +161,10 @@ if __name__ == "__main__":
 				makedirs(dir)
 			for bk, bv in cacheDump.blobMap.items():
 				reqFile = open('%s%s%s.req' % (dir, sep, bk), 'w+')
-				reqFile.write(json.dumps(bv.request, indent=4))
+				reqFile.write(json.dumps(bv.request, indent=4, encoding="ISO-8859-1"))
 				reqFile.close()
 				respFile = open('%s%s%s.resp' % (dir, sep, bk), 'w+')
-				respFile.write(json.dumps(bv.response, indent=4))
+				respFile.write(json.dumps(bv.response, indent=4, encoding="ISO-8859-1"))
 				respFile.close()
 			for dk, dv in cacheDump.dataMap.items():
 				if len(dv.receiver_data) > 0:
